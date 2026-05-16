@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Performance - High Fidelity</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <span class="section-label">Shift Configuration</span>
+
+        <select id="shiftSelect">
+            <option>MORNING SHIFT</option>
+            <option>EVENING SHIFT</option>
+            <option>NIGHT SHIFT</option>
+        </select>
+
+        <span class="section-label">Analog Insertion Team</span>
+        <div class="staff-grid" id="analogGrid"></div>
+
+        <span class="section-label">Technicians Team</span>
+        <div class="staff-grid" id="techGrid"></div>
+
+        <button class="gen-btn" onclick="buildDashboard()">
+            Refresh Reports
+        </button>
+
+        <div class="entry-container">
+
+            <div class="table-title">Analog Entry</div>
+
+            <table id="analogTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>TGT</th>
+                        <th>ACH</th>
+                        <th>M</th>
+                        <th>D</th>
+                        <th>C</th>
+                    </tr>
+                </thead>
+                <tbody id="analogBody"></tbody>
+            </table>
+
+            <div class="table-title">Technician Entry</div>
+
+            <table id="techTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>TGT</th>
+                        <th>ACH</th>
+                        <th>M</th>
+                        <th>D</th>
+                        <th>C</th>
+                    </tr>
+                </thead>
+                <tbody id="techBody"></tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <div id="analogSec" class="report-block" style="display:none;">
+            <div class="report-header analog-title">
+                ANALOG INSERTION ANALYSIS
+            </div>
+
+            <div class="bar-wrap">
+                <canvas id="analogBar"></canvas>
+            </div>
+
+            <div class="pie-flex-grid" id="analogGallery"></div>
+        </div>
+
+        <div id="techSec" class="report-block" style="display:none;">
+            <div class="report-header tech-title">
+                GENERAL TECHNICIAN ANALYSIS
+            </div>
+
+            <div class="bar-wrap">
+                <canvas id="techBar"></canvas>
+            </div>
+
+            <div class="pie-flex-grid" id="techGallery"></div>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
