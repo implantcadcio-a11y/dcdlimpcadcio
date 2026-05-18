@@ -13,89 +13,66 @@
 
 <div class="container">
     <div class="sidebar">
-        <span class="section-label">Shift Configuration</span>
-
-        <select id="shiftSelect">
-            <option>MORNING SHIFT</option>
-            <option>EVENING SHIFT</option>
-            <option>NIGHT SHIFT</option>
+        <span class="section-label">Shift</span>
+        <select id="shiftSelect" style="width:100%; padding:8px; background:#000; color:#fff; border:1px solid var(--border); border-radius:4px; margin-bottom:15px;">
+            <option>A SHIFT</option>
+            <option>B SHIFT</option>
+            <option>C SHIFT</option>
+	    <option>D SHIFT</option>
         </select>
 
         <span class="section-label">Analog Insertion Team</span>
-        <div class="staff-grid" id="analogGrid"></div>
+        <div class="staff-grid" id="analogGrid">
+            <script>
+                ["rajitha", "reshma", "ajeeshna", "cinju", "selbin", "aksa"].forEach(n => {
+                    document.write(`<label class="staff-item"><input type="checkbox" class="a-check" value="${n}"> ${n}</label>`);
+                });
+            </script>
+        </div>
 
-        <span class="section-label">Technicians Team</span>
-        <div class="staff-grid" id="techGrid"></div>
+        <span class="section-label">Model Carving Team</span>
+        <div class="staff-grid" id="techGrid">
+            <script>
+                ["ambily", "hari", "manu", "radha", "josna", "akshara", "haritha", "jishnu", "adarsh", "vincy", "elmy", "ashna", "anju", "navya"].forEach(n => {
+                    document.write(`<label class="staff-item"><input type="checkbox" class="t-check" value="${n}"> ${n}</label>`);
+                });
+            </script>
+        </div>
 
-        <button class="gen-btn" onclick="buildDashboard()">
-            Refresh Reports
-        </button>
+        <button class="gen-btn" onclick="buildDashboard()">Refresh Reports</button>
 
         <div class="entry-container">
-
-            <div class="table-title">Analog Entry</div>
-
+            <div class="table-title">Analog Insertion</div>
             <table id="analogTable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>TGT</th>
-                        <th>ACH</th>
-                        <th>M</th>
-                        <th>D</th>
-                        <th>C</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Name</th><th>TGT</th><th>ACH</th><th>AI</th><th>AR</th><th>OTH</th></tr></thead>
                 <tbody id="analogBody"></tbody>
+                <tfoot id="analogFoot"></tfoot>
             </table>
 
-            <div class="table-title">Technician Entry</div>
-
+            <div class="table-title">Model Carving</div>
             <table id="techTable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>TGT</th>
-                        <th>ACH</th>
-                        <th>M</th>
-                        <th>D</th>
-                        <th>C</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Name</th><th>TGT</th><th>ACH</th><th>MD</th><th>DSG</th><th>CRV</th><th>DPPS</th></tr></thead>
                 <tbody id="techBody"></tbody>
+                <tfoot id="techFoot"></tfoot>
             </table>
-
         </div>
     </div>
 
     <div class="main-content">
-
         <div id="analogSec" class="report-block" style="display:none;">
-            <div class="report-header analog-title">
-                ANALOG INSERTION ANALYSIS
-            </div>
-
-            <div class="bar-wrap">
-                <canvas id="analogBar"></canvas>
-            </div>
-
+            <div class="report-header" style="color: var(--orange);">ANALOG INSERTION ANALYSIS</div>
+            <div class="bar-wrap"><canvas id="analogBar"></canvas></div>
             <div class="pie-flex-grid" id="analogGallery"></div>
         </div>
 
         <div id="techSec" class="report-block" style="display:none;">
-            <div class="report-header tech-title">
-                GENERAL TECHNICIAN ANALYSIS
-            </div>
-
-            <div class="bar-wrap">
-                <canvas id="techBar"></canvas>
-            </div>
-
+            <div class="report-header" style="color: var(--purple);">MODEL CARVING ANALYSIS</div>
+            <div class="bar-wrap"><canvas id="techBar"></canvas></div>
             <div class="pie-flex-grid" id="techGallery"></div>
         </div>
-
     </div>
 </div>
+
 
 <script src="script.js"></script>
 
